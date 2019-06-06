@@ -1,7 +1,9 @@
 package com.example.androidproject.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,7 +28,8 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MainController controller = new MainController(this, Injection.getRestApiInstance());
+        SharedPreferences sharedPreferences = this.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
+        MainController controller = new MainController(this, Injection.getRestApiInstance(), sharedPreferences);
         controller.start();
 
     }
