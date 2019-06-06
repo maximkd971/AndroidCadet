@@ -22,5 +22,17 @@ public class Injection {
 
         return retrofit.create(FootRestApi.class);
     }
+    public static PlayerRestApi getPRestApiInstance(){
+        Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
 
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .build();
+
+
+        return retrofit.create(PlayerRestApi.class);
+    }
 }
