@@ -9,6 +9,6 @@ public class Players {
         return name;
     }
     public String getPosition(){return position;}
-    
+
 
 }

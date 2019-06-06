@@ -40,7 +40,7 @@ public class DetailActivity extends Activity {
     }
 
     public void showList(List<Players> PlayersList) {
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view2);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
 
