@@ -2,7 +2,6 @@ package com.example.androidproject.view;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,9 +43,8 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener {
 
     @Override
     public void onFootClick(int position, String id) {
-        Toast.makeText(getApplicationContext(), "name : "+id, Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra("Id", id);
+        startActivity(intent);
     }
-
-
-
 }
