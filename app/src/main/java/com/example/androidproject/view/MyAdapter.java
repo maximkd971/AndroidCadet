@@ -13,6 +13,7 @@ import com.example.androidproject.modele.Foot;
 public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Foot> values;
+    private OnFootListener onFootListener;
     public void add(int position, Foot item) {
         values.add(position, item);
         notifyItemInserted(position);
@@ -23,8 +24,9 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
         notifyItemRemoved(position);
     }
 
-    public MyAdapter(List<Foot> myDataset) {
+    public MyAdapter(List<Foot> myDataset, OnFootListener onFootListener) {
         values = myDataset;
+        this.onFootListener = onFootListener;
     }
 
     @Override
@@ -32,7 +34,7 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
                                          int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
         View v = inflater.inflate(R.layout.row_layout, parent, false);
-        ViewHolder vh = new ViewHolder(v);
+        ViewHolder vh = new ViewHolder(v,onFootListener);
         return vh;
     }
 
@@ -49,5 +51,8 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
         return values.size();
     }
 
+    public interface OnFootListener{
+        void onFootClick(int position, String id);
+    }
 
 }
