@@ -9,8 +9,6 @@ public class Players {
         return name;
     }
     public String getPosition(){return position;}
-
-    public void setName(String name) {this.name = name;}
-    public void setPosition(String position){this.position = position;}
+    
 
 }
