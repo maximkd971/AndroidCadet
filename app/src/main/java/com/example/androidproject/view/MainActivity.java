@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.example.androidproject.Injection;
 import com.example.androidproject.R;
@@ -14,7 +15,7 @@ import com.example.androidproject.modele.Foot;
 
 import java.util.List;
 
-public class MainActivity extends Activity  {
+public class MainActivity extends Activity implements MyAdapter.OnFootListener {
 
 
     private RecyclerView recyclerView;
@@ -37,8 +38,15 @@ public class MainActivity extends Activity  {
         layoutManager = new LinearLayoutManager(this);
 
         recyclerView.setLayoutManager(layoutManager);
-        mAdapter = new MyAdapter(FootList );
+        mAdapter = new MyAdapter(FootList,this );
         recyclerView.setAdapter(mAdapter);
     }
+
+    @Override
+    public void onFootClick(int position, String id) {
+        Toast.makeText(getApplicationContext(), "name : "+id, Toast.LENGTH_LONG).show();
+    }
+
+
 
 }
