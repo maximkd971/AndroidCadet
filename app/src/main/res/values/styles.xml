@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/TransitionAnim</item>
     </style>
 
+    <style name="TransitionAnim" parent ="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_droit</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_gauche</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_gauche</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_droit</item>
+    </style>
 </resources>
