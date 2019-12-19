@@ -9,11 +9,13 @@ import android.view.ViewGroup;
 
 import com.example.androidproject.R;
 import com.example.androidproject.modele.Foot;
+import com.squareup.picasso.Picasso;
 
 public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private List<Foot> values;
     private OnFootListener onFootListener;
+    private String url;
     public void add(int position, Foot item) {
         values.add(position, item);
         notifyItemInserted(position);
@@ -41,10 +43,13 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final Foot currentFoot = values.get(position);
+        url = (currentFoot.getCrestUrl());
         holder.txtFirstLine.setText(currentFoot.getName());
         holder.txtFooter.setText("Stade : " + currentFoot.getVenue());
         holder.txtId.setText(String.valueOf(currentFoot.getId()));
+        Picasso.get().load(url).into(holder.icon);
     }
+
 
     @Override
     public int getItemCount() {
