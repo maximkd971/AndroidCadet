@@ -33,8 +33,8 @@ import retrofit2.Response;
             this.sharedPreferences = sharedPreferences;
         }
 
-        public void start() {
-            Call<RestFootResponse> call = footRestApi.getFootList();
+        public void start(String id) {
+            Call<RestFootResponse> call = footRestApi.getFootList(id);
             call.enqueue(new Callback<RestFootResponse>() {
                 @Override
                 public void onResponse(Call<RestFootResponse> call, Response<RestFootResponse> response) {

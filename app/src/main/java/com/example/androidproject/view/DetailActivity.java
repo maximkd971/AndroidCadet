@@ -35,7 +35,6 @@ public class DetailActivity extends Activity {
     }
 
     public String getId(){
-
         return id;
     }
 
