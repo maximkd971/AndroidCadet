@@ -47,7 +47,7 @@ public class MyAdapter extends RecyclerView.Adapter<ViewHolder> {
         holder.txtFirstLine.setText(currentFoot.getName());
         holder.txtFooter.setText("Stade : " + currentFoot.getVenue());
         holder.txtId.setText(String.valueOf(currentFoot.getId()));
-        Picasso.get().load(url).into(holder.icon);
+        holder.icon.setImageResource(R.drawable.ballon);
     }
 
 

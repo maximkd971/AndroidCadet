@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#39769C"
+    >
+
+
+    <Button
+        android:id="@+id/FL1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="100dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/l1"
+        android:radius="30dp" />
+
+    <Button
+        android:id="@+id/SA"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="100dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/seria" />
+
+    <Button
+        android:id="@+id/PL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="300dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/pl" />
+
+    <Button
+        android:id="@+id/CL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="300dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/ucl" />
+
+    <Button
+        android:id="@+id/PD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="500dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/liga" />
+
+    <Button
+        android:id="@+id/BL1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="500dp"
+        android:background="#FFFFFF"
+        android:drawableTop="@drawable/b" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="25dp"
+        android:text="Choisis ta ligue"
+        android:textColor="#FFFFFF"
+        android:textSize="36dp"
+        android:textStyle="normal|bold" />
+</RelativeLayout>
