@@ -11,6 +11,14 @@
         android:id="@+id/my_recycler_view2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
         android:scrollbars="vertical" />
+
+    <fragment
+        android:id="@+id/detail_title_fragment"
+        android:name="com.example.androidproject.controller.TitleController"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"></fragment>
 
 </RelativeLayout>

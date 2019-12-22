@@ -40,6 +40,7 @@ public class PlayerAdapter extends RecyclerView.Adapter<ViewPHolder> {
         holder.txtFirstLine.setText(currentPlayer.getName());
         holder.txtFooter.setText("Poste : " + currentPlayer.getPosition());
         holder.icon.setImageResource(R.drawable.joueur);
+       
     }
 
     @Override

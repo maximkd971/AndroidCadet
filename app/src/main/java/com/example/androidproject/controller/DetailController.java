@@ -2,6 +2,7 @@ package com.example.androidproject.controller;
 
 
 import android.util.Log;
+import android.widget.TextView;
 
 import com.example.androidproject.PlayerRestApi;
 import com.example.androidproject.modele.Players;
@@ -35,7 +36,11 @@ public class DetailController {
                 if(response.isSuccessful()) {
                     RestDetailResponse restDetailResponse = response.body();
                     List<Players> playerList = restDetailResponse.getPlayers();
+                    String team_name = restDetailResponse.getTeam_name();
+                    view.teamTitle(team_name);
                     view.showList(playerList);
+
+
                 } else {
                     System.out.println(response.errorBody());
                 }

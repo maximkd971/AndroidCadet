@@ -11,13 +11,16 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.androidproject.Injection;
 import com.example.androidproject.R;
+import com.example.androidproject.controller.BackButtonController;
 import com.example.androidproject.controller.LeagueController;
 import com.example.androidproject.controller.MainController;
 import com.example.androidproject.controller.SplashController;
+import com.example.androidproject.controller.TitleController;
 import com.example.androidproject.modele.Foot;
 
 import java.util.List;
@@ -28,8 +31,10 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener, 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private BackButtonController backButtonFragment;
     private LeagueController leagueFragment;
     private SplashController splashFragment;
+    private TitleController titleFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,10 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener, 
             }
         }, 9000);
         leagueFragment = (LeagueController)getFragmentManager().findFragmentById(R.id.league_fragment);
+        backButtonFragment = (BackButtonController)getFragmentManager().findFragmentById(R.id.back_button_fragment) ;
+        titleFragment = (TitleController) getFragmentManager().findFragmentById(R.id.title_fragment) ;
+        titleFragment.getView().setVisibility(View.INVISIBLE);
+        backButtonFragment.getView().setVisibility(View.INVISIBLE);
 
         Button bl1 = findViewById(R.id.BL1);
         bl1.setOnClickListener(this);
@@ -58,6 +67,8 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener, 
         pl.setOnClickListener(this);
         Button pd = findViewById(R.id.PD);
         pd.setOnClickListener(this);
+        Button back = findViewById(R.id.back_button);
+        back.setOnClickListener(this);
 
 
         SharedPreferences sharedPreferences = this.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
@@ -84,39 +95,56 @@ public class MainActivity extends Activity implements MyAdapter.OnFootListener, 
     }
 
     public void onLeagueClick(String id){
-        leagueFragment.getView().setVisibility((View.INVISIBLE));
+        backButtonFragment.getView().setVisibility(View.VISIBLE);
+        leagueFragment.getView().setVisibility(View.INVISIBLE);
         SharedPreferences sharedPreferences = this.getSharedPreferences("user_prefs", Context.MODE_PRIVATE);
         MainController controller = new MainController(this, Injection.getRestApiInstance(), sharedPreferences);
         controller.start(id);
+    }
+
+    public void showTitle(String name){
+        TextView titre = findViewById(R.id.title);
+        titre.setText(name);
+        titleFragment.getView().setVisibility(View.VISIBLE);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case  R.id.BL1 :
-                Log.d("test btn", "ça marche !");
+                showTitle("BUNDESLIGA");
                 onLeagueClick("BL1");
                 break;
 
             case R.id.FL1 :
+                showTitle("LIGUE 1");
                 onLeagueClick("FL1");
                 break;
 
             case R.id.CL :
+                showTitle("CHAMPIONS LEAGUE");
                 onLeagueClick("CL");
                 break;
 
             case R.id.PD :
+                showTitle("LA LIGA");
                 onLeagueClick("PD");
                 break;
 
             case R.id.PL :
+                showTitle("PREMIER LEAGUE");
                 onLeagueClick("PL");
                 break;
 
             case R.id.SA :
+                showTitle("SERIE A");
                 onLeagueClick("SA");
                 break;
+
+            case R.id.back_button:
+                leagueFragment.getView().setVisibility(View.VISIBLE);
+                backButtonFragment.getView().setVisibility(View.INVISIBLE);
+                titleFragment.getView().setVisibility(View.INVISIBLE);
         }
     }
 }
